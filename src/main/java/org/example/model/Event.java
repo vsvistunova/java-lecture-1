@@ -1,9 +1,12 @@
 package org.example.model;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 public abstract class Event {
     protected Long id;
     protected String title;
@@ -14,6 +17,8 @@ public abstract class Event {
     protected LocalDateTime endTime;
     protected int maxParticipants;
     protected List<User> participants;
+
+    public Event() {}
 
     // Конструктор
     public Event(String title, String description, User creator, Location location, 
@@ -51,82 +56,5 @@ public abstract class Event {
         System.out.println("Место: " + location.getFullAddress());
         System.out.println("Время: " + startTime + " - " + endTime);
         System.out.println("Участники: " + participants.size() + "/" + maxParticipants);
-    }
-
-    @Override
-    public String toString() {
-        return title + " (" + getEventType() + ") в " + location.getFullAddress();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public User getCreator() {
-        return creator;
-    }
-
-    public void setCreator(User creator) {
-        this.creator = creator;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public LocalDateTime getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(LocalDateTime startTime) {
-        this.startTime = startTime;
-    }
-
-    public LocalDateTime getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(LocalDateTime endTime) {
-        this.endTime = endTime;
-    }
-
-    public int getMaxParticipants() {
-        return maxParticipants;
-    }
-
-    public void setMaxParticipants(int maxParticipants) {
-        this.maxParticipants = maxParticipants;
-    }
-
-    public List<User> getParticipants() {
-        return participants;
-    }
-
-    public void setParticipants(List<User> participants) {
-        this.participants = participants;
     }
 }

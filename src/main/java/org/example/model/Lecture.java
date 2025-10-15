@@ -1,7 +1,10 @@
 package org.example.model;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
+@Data
 public class Lecture extends Event {
 
   private String subject;
@@ -30,26 +33,5 @@ public class Lecture extends Event {
   // Специфичные для лекции методы
   public void markAsMandatory() {
     this.isMandatory = true;
-  }
-
-  public boolean isMandatory() {
-    return isMandatory;
-  }
-
-  @Override
-  public String toString() {
-    return super.toString() + " [Предмет: " + subject + "]";
-  }
-
-  public String getSubject() {
-    return subject;
-  }
-
-  public void setSubject(String subject) {
-    this.subject = subject;
-  }
-
-  public void setMandatory(boolean mandatory) {
-    isMandatory = mandatory;
   }
 }

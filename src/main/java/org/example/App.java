@@ -1,12 +1,8 @@
 package org.example;
 
 import java.time.LocalDateTime;
-import org.example.model.Event;
-import org.example.model.Lecture;
-import org.example.model.Location;
-import org.example.model.UniversityEvent;
-import org.example.model.User;
-import org.example.model.UserType;
+
+import org.example.model.*;
 
 public class App {
 
@@ -34,10 +30,14 @@ public class App {
         LocalDateTime.now().plusDays(5), LocalDateTime.now().plusDays(5).plusHours(6),
         150, "Факультет информатики", true);
 
+    Event meeting = new AdminMeetingEvent("Административное мероприятие",
+            "Собрание преподавателей", admin, conferenceRoom, LocalDateTime.now().plusDays(5),
+            LocalDateTime.now().plusDays(5).plusHours(1), 20, true);
+
     // Демонстрация полиморфизма
     System.out.println("=== ДЕМОНСТРАЦИЯ ООП ===");
 
-    Event[] events = {lecture, conference};
+    Event[] events = {lecture, conference, meeting};
     for (Event event : events) {
       System.out.println("\n--- " + event.getEventType() + " ---");
       event.displayEventInfo();
@@ -60,5 +60,6 @@ public class App {
     System.out.println("Лекция является Lecture: " + (lecture instanceof Lecture));
     System.out.println(
         "Конференция является UniversityEvent: " + (conference instanceof UniversityEvent));
+    System.out.println("Собрание является AdminMeeting: " + (meeting instanceof AdminMeetingEvent));
   }
 }

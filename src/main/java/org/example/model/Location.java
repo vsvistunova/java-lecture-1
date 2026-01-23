@@ -1,5 +1,10 @@
 package org.example.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class Location {
 
   private String building;
@@ -30,47 +35,7 @@ public class Location {
     return isAvailable && peopleCount <= capacity;
   }
 
-  public String getBuilding() {
-    return building;
-  }
-
-  public void setBuilding(String building) {
-    this.building = building;
-  }
-
-  public String getRoomNumber() {
-    return roomNumber;
-  }
-
-  public void setRoomNumber(String roomNumber) {
-    this.roomNumber = roomNumber;
-  }
-
-  public int getCapacity() {
-    return capacity;
-  }
-
-  public void setCapacity(int capacity) {
-    this.capacity = capacity;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public boolean isAvailable() {
-    return isAvailable;
-  }
-
-  public void setAvailable(boolean available) {
-    isAvailable = available;
-  }
-
-  @Override
+    @Override
   public String toString() {
     return "Location{" +
            "building='" + building + '\'' +

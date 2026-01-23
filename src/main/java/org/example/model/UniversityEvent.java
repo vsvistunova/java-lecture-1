@@ -1,7 +1,12 @@
 package org.example.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
+@Setter
+@Getter
 public class UniversityEvent extends Event {
 
   private String organizerDepartment;
@@ -37,19 +42,4 @@ public class UniversityEvent extends Event {
     return base + " [Организатор: " + organizerDepartment + "]";
   }
 
-  public String getOrganizerDepartment() {
-    return organizerDepartment;
-  }
-
-  public void setOrganizerDepartment(String organizerDepartment) {
-    this.organizerDepartment = organizerDepartment;
-  }
-
-  public boolean isRequiresRegistration() {
-    return requiresRegistration;
-  }
-
-  public void setRequiresRegistration(boolean requiresRegistration) {
-    this.requiresRegistration = requiresRegistration;
-  }
 }
